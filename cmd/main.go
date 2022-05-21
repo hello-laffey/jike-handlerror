@@ -3,8 +3,8 @@
 package main
 
 import (
-	"database/sql"
 	"fmt"
+	"handlerror/internal/common"
 	"handlerror/internal/service/dao"
 	"os"
 
@@ -15,7 +15,7 @@ import (
 // 程序的顶部，使用%+v把堆栈打清楚
 func main() {
 	if err := dao.QuerySql(); err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
+		if errors.Is(err, common.NotFound) {
 			fmt.Printf("Warning: %v\n", err)
 			return
 		} else {
