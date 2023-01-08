@@ -16,7 +16,7 @@ import (
 func main() {
 	if err := dao.QuerySql(); err != nil {
 		if errors.Is(err, common.NotFound) {
-			fmt.Printf("Warning: %v\n", err)
+			fmt.Printf("Warning: %+v\n", err)
 			return
 		} else {
 			fmt.Printf("FATAL: %+v\n", err)
